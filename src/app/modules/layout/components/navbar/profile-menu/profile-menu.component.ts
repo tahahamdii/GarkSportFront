@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { NgClass } from '@angular/common';
 import { ClickOutsideDirective } from '../../../../../shared/directives/click-outside.directive';
 import { AngularSvgIconModule } from 'angular-svg-icon';
@@ -41,18 +41,14 @@ export class ProfileMenuComponent implements OnInit {
     {
       title: 'Your Profile',
       icon: './assets/icons/heroicons/outline/user-circle.svg',
-      link: '/profile',
+      link: '/dashboard/profile',
     },
     {
       title: 'Settings',
       icon: './assets/icons/heroicons/outline/cog-6-tooth.svg',
       link: '/settings',
     },
-    {
-      title: 'Log out',
-      icon: './assets/icons/heroicons/outline/logout.svg',
-      link: '/auth',
-    },
+    
   ];
 
   public themeColors = [
@@ -88,7 +84,7 @@ export class ProfileMenuComponent implements OnInit {
 
   public themeMode = ['light', 'dark'];
 
-  constructor(public themeService: ThemeService) {}
+  constructor(private readonly _router: Router, public themeService: ThemeService) {}
 
   ngOnInit(): void {}
 
@@ -107,5 +103,11 @@ export class ProfileMenuComponent implements OnInit {
     this.themeService.theme.update((theme) => {
       return { ...theme, color: color };
     });
+  }
+  logout(): void {
+    // Clear authentication status
+    localStorage.removeItem('isLoggedIn');
+    // Redirect to login page
+    this._router.navigate(['/auth/sign-in']); // Adjust route as needed
   }
 }

@@ -11,8 +11,8 @@ export class Menu {
           label: 'Dashboard',
           route: '/dashboard',
           children: [
-            { label: 'Nfts', route: '/dashboard/nfts' },
-            // { label: 'Podcast', route: '/dashboard/podcast' },
+            { label: 'Power Bi Report', route: '/dashboard/nfts' },
+           { label: 'Podcast', route: '/dashboard/podcast' },
           ],
         },
         {
@@ -27,19 +27,11 @@ export class Menu {
             { label: 'Two Steps', route: '/auth/two-steps' },
           ],
         },
-        {
-          icon: 'assets/icons/heroicons/outline/shield-exclamation.svg',
-          label: 'Erros',
-          route: '/errors',
-          children: [
-            { label: '404', route: '/errors/404' },
-            { label: '500', route: '/errors/500' },
-          ],
-        },
+        
       ],
     },
     {
-      group: 'Collaboration',
+      group: 'partie ai',
       separator: true,
       items: [
         {
@@ -47,43 +39,14 @@ export class Menu {
           label: 'Download',
           route: '/download',
         },
-        {
-          icon: 'assets/icons/heroicons/outline/gift.svg',
-          label: 'Gift Card',
-          route: '/gift',
-        },
+        
         {
           icon: 'assets/icons/heroicons/outline/users.svg',
-          label: 'Users',
-          route: '/users',
+          label: 'Ask Ai ✨',
+          route: 'dashboard/chatbot',
         },
       ],
     },
-    {
-      group: 'Config',
-      separator: false,
-      items: [
-        {
-          icon: 'assets/icons/heroicons/outline/cog.svg',
-          label: 'Settings',
-          route: '/settings',
-        },
-        {
-          icon: 'assets/icons/heroicons/outline/bell.svg',
-          label: 'Notifications',
-          route: '/gift',
-        },
-        {
-          icon: 'assets/icons/heroicons/outline/folder.svg',
-          label: 'Folders',
-          route: '/folders',
-          children: [
-            { label: 'Current Files', route: '/folders/current-files' },
-            { label: 'Downloads', route: '/folders/download' },
-            { label: 'Trash', route: '/folders/trash' },
-          ],
-        },
-      ],
-    },
+    
   ];
 }

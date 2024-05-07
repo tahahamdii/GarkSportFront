@@ -4,6 +4,11 @@ import { Router, RouterLink } from '@angular/router';
 import { NgClass, NgIf } from '@angular/common';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 import { ButtonComponent } from '../../../../shared/components/button/button.component';
+import { RegisterService } from '../sign-up/register.service';
+import { Login } from '../login';
+import { HttpClient } from '@angular/common/http';
+import { Observable, tap } from 'rxjs';
+import { User } from '../user';
 
 @Component({
   selector: 'app-sign-in',
@@ -16,18 +21,27 @@ export class SignInComponent implements OnInit {
   form!: FormGroup;
   submitted = false;
   passwordTextType!: boolean;
+  userData: Login = {
+    username: '',
+    password: '',
+  };
+  private baseUrl = 'http://localhost:8080';
 
-  constructor(private readonly _formBuilder: FormBuilder, private readonly _router: Router) {}
+  constructor(
+    private readonly _router: Router,
+    private http: HttpClient
+  ) {}
 
   onClick() {
     console.log('Button clicked');
   }
 
   ngOnInit(): void {
-    this.form = this._formBuilder.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required],
-    });
+    const isLoggedIn = localStorage.getItem('isLoggedIn');
+    if (isLoggedIn === 'true') {
+      // Redirect to dashboard or home page if logged in
+      this._router.navigate(['/dashboard']); // Adjust route as needed
+    }
   }
 
   get f() {
@@ -49,4 +63,28 @@ export class SignInComponent implements OnInit {
 
     this._router.navigate(['/']);
   }
-}
+  login() {
+    // Make login request
+    this.http.post<any>(`${this.baseUrl}/login`, this.userData).pipe(
+      tap(response => {
+        // Save authentication status to indicate user is logged in
+        // localStorage.setItem('isLoggedIn', 'true');
+        // Redirect to dashboard or home page after successful login
+        this._router.navigate(['/dashboard']); // Adjust route as needed
+      })
+    ).subscribe(
+      response => {
+        console.log('Login successful', response);
+      },
+      error => {
+        console.error('Login failed', error);
+      }
+    );
+  }
+  
+
+    
+  }
+
+
+
