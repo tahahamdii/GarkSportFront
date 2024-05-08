@@ -14,6 +14,7 @@ import { ChatbotComponent } from './pages/chatbot/chatbot.component';
 import { RoleGuard } from '../auth/pages/role-guard';
 import { SvmModelComponent } from './pages/svm-model/svm-model.component';
 import { TimeseriesComponent } from './pages/timeseries/timeseries.component';
+import { InjuryComponent } from './pages/injury/injury.component';
 
 const routes: Routes = [
   {
@@ -56,7 +57,7 @@ const routes: Routes = [
       {path :'chatbot', component:ChatbotComponent},
       {path:'svm',component: SvmModelComponent},
       {path: 'notfound', component: NotfoundComponent},
-      {path: 'injuries' , component:InjuriesComponent},
+      {path: 'injuries' , component:InjuryComponent},
       {path: 'processing', component:TimeseriesComponent}
 
       

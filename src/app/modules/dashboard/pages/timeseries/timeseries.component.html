@@ -1,1 +1,13 @@
-<p>timeseries works!</p>
+<div>
+    <label for="steps">Number of Steps:</label>
+    <input type="number" id="steps" [(ngModel)]="steps">
+    <button (click)="getTimeseriesPredictions()">Get Predictions</button>
+  </div>
+  
+  <div *ngIf="predictions.length">
+    <h3>Predictions:</h3>
+    <ul>
+      <li *ngFor="let prediction of predictions">{{ prediction }}</li>
+    </ul>
+  </div>
+  

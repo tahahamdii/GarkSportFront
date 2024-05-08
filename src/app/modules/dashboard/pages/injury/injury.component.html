@@ -1,1 +1,20 @@
 <p>injury works!</p>
+<div *ngFor="let player of players; let i = index">
+    <label for="poste{{ i }}">Poste:</label>
+    <input type="text" id="poste{{ i }}" [(ngModel)]="player.poste">
+    <label for="age{{ i }}">Age:</label>
+    <input type="number" id="age{{ i }}" [(ngModel)]="player.age">
+  </div>
+  <button (click)="analyzeInjuries()">Analyze Injuries</button>
+  
+  <div *ngIf="predictions">
+    <h3>Predictions:</h3>
+    <div *ngFor="let key of predictions | keyvalue">
+      <h4>{{ key.key }}</h4>
+      <ul>
+        <li *ngFor="let prediction of key.value">{{ prediction }}</li>
+      </ul>
+    </div>
+  </div>
+  
+  
