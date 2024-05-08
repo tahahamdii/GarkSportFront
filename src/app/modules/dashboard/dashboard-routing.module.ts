@@ -12,6 +12,7 @@ import { MedicalComponent } from './components/medical/medical.component';
 import { InjuriesComponent } from './components/injuries/injuries.component';
 import { ChatbotComponent } from './pages/chatbot/chatbot.component';
 import { RoleGuard } from '../auth/pages/role-guard';
+import { SvmModelComponent } from './pages/svm-model/svm-model.component';
 
 const routes: Routes = [
   {
@@ -52,6 +53,7 @@ const routes: Routes = [
       },
       
       {path :'chatbot', component:ChatbotComponent},
+      {path:'svm',component: SvmModelComponent},
       {path: 'notfound', component: NotfoundComponent},
 
       { path: '**', redirectTo: 'errors/404' },

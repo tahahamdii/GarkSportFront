@@ -4,13 +4,14 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-svm-model',
-  templateUrl: './svm-model.component.html',
+  selector: 'app-xgboot',
   standalone: true,
   imports: [FormsModule,CommonModule],
-  styleUrl: './svm-model.component.scss'
+  templateUrl: './xgboot.component.html',
+  styleUrl: './xgboot.component.scss'
 })
-export class SvmModelComponent {
+export class XgbootComponent {
+
   predictionResults: any;
 
   constructor(private http: HttpClient) { }

@@ -34,7 +34,9 @@ export class Menu {
           route: '/dashboard',
           children: [
             { label: 'Chatbot', route: '/dashboard/chatbot' },
+            {label: 'Svm Predictions', route: '/dashboard/svm'},
           ],
+          
         },
       ],
     },

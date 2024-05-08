@@ -2,8 +2,7 @@
     <button (click)="predict()" class="button">Get Predictions</button>
     <div *ngIf="predictionResults" class="predictions">
       
-      <p class="prediction">SVM Prediction: {{ predictionResults.svm_prediction }}</p>
-      
+      <p class="prediction">XGBoost Prediction: {{ predictionResults.xgboost_prediction }}</p>
     </div>
   </div>
   
