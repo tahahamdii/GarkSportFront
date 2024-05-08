@@ -106,8 +106,8 @@ export class ProfileMenuComponent implements OnInit {
   }
   logout(): void {
     // Clear authentication status
-    localStorage.removeItem('isLoggedIn');
+    sessionStorage.removeItem('currentUser');
     // Redirect to login page
-    this._router.navigate(['/auth/sign-in']); // Adjust route as needed
+    this._router.navigate(['/auth/sign-in']); 
   }
 }

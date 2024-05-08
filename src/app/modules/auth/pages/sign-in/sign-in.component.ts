@@ -22,10 +22,10 @@ export class SignInComponent implements OnInit {
   submitted = false;
   passwordTextType!: boolean;
   userData: Login = {
-    username: '',
+    email: '',
     password: '',
   };
-  private baseUrl = 'http://localhost:8080';
+  private baseUrl = 'http://localhost:8080/rest/auth';
 
   constructor(
     private readonly _router: Router,
@@ -65,16 +65,36 @@ export class SignInComponent implements OnInit {
   }
   login() {
     // Make login request
-    this.http.post<any>(`${this.baseUrl}/login`, this.userData).pipe(
+    this.http.post<any>(`${this.baseUrl}/C`, this.userData).pipe(
       tap(response => {
         // Save authentication status to indicate user is logged in
         // localStorage.setItem('isLoggedIn', 'true');
         // Redirect to dashboard or home page after successful login
+        
         this._router.navigate(['/dashboard']); // Adjust route as needed
       })
     ).subscribe(
       response => {
         console.log('Login successful', response);
+        sessionStorage.setItem('currentUser', JSON.stringify(response));
+
+        this.http.post<{ role: string }>('http://localhost:8080/rest/auth/user/role', { email: this.userData.email })
+        .subscribe(
+            response => {
+                const role = response.role;
+                localStorage.setItem('userRole', role);
+    
+                console.log('User role:', role);
+                // Redirect user based on role
+                    
+                
+            },
+            error => {
+                console.error('Failed to fetch user role', error);
+                // Handle error fetching role (e.g., show error message)
+            }
+        );
+        
       },
       error => {
         console.error('Login failed', error);

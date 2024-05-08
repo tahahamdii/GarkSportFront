@@ -20,9 +20,10 @@ export class SignUpComponent implements OnInit {
     lastName: '',
     username: '',
     password: '',
-    role: ''
+    role: '',
+    email: '',
   };
-  private baseUrl = 'http://localhost:8080';
+  private baseUrl = 'http://localhost:8080/rest/auth';
 
   constructor(private http : HttpClient, private readonly _router: Router) {}
 
