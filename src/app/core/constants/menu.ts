@@ -35,6 +35,8 @@ export class Menu {
           children: [
             { label: 'Chatbot', route: '/dashboard/chatbot' },
             {label: 'Svm Predictions', route: '/dashboard/svm'},
+            {label: 'Injury Prediction', route: '/dashboard/injuries'},
+            {label: 'Processing time series', route : '/dashboard/processing'}
           ],
           
         },

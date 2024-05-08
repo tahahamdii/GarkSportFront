@@ -13,6 +13,7 @@ import { InjuriesComponent } from './components/injuries/injuries.component';
 import { ChatbotComponent } from './pages/chatbot/chatbot.component';
 import { RoleGuard } from '../auth/pages/role-guard';
 import { SvmModelComponent } from './pages/svm-model/svm-model.component';
+import { TimeseriesComponent } from './pages/timeseries/timeseries.component';
 
 const routes: Routes = [
   {
@@ -55,8 +56,10 @@ const routes: Routes = [
       {path :'chatbot', component:ChatbotComponent},
       {path:'svm',component: SvmModelComponent},
       {path: 'notfound', component: NotfoundComponent},
+      {path: 'injuries' , component:InjuriesComponent},
+      {path: 'processing', component:TimeseriesComponent}
 
-      { path: '**', redirectTo: 'errors/404' },
+      
     ],
   },
 ];
