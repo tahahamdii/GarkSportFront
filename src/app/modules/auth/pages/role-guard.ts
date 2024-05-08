@@ -10,10 +10,10 @@ export class RoleGuard implements CanActivate {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): boolean {
-    const expectedRole = next.data['expectedRole'];
+    const expectedRoles = next.data['expectedRoles'];
     const userRole = localStorage.getItem('userRole'); // Call your service to get user's role
     
-    if (userRole === expectedRole) {
+    if (expectedRoles.includes(userRole)) {
       return true; // User has the required role, allow navigation
     } else {
       // User does not have the required role, redirect to unauthorized page or handle accordingly

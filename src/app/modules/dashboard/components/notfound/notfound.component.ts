@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
+import { SvgIconComponent } from 'angular-svg-icon';
 
 @Component({
   selector: 'app-notfound',
-  standalone: true,
-  imports: [],
   templateUrl: './notfound.component.html',
   styleUrl: './notfound.component.scss'
 })

@@ -15,9 +15,7 @@ export class Menu {
            { label: 'Player Stat', route: '/dashboard/player' },
            { label: 'Match Stat', route: '/dashboard/match' },
            { label: 'Team Stat', route: '/dashboard/team' },
-           { label: 'Medical Stat', route: '/dashboard/medical' },
-           { label: 'Injuries Stat', route: '/dashboard/injuries' },
-
+           { label: 'Medical Stat', route: '/dashboard/medical' }
           ],
         },
         
@@ -33,7 +31,10 @@ export class Menu {
         {
           icon: 'assets/icons/heroicons/outline/users.svg',
           label: 'Ask Ai ✨',
-          route: 'dashboard/chatbot',
+          route: '/dashboard',
+          children: [
+            { label: 'Chatbot', route: '/dashboard/chatbot' },
+          ],
         },
       ],
     },

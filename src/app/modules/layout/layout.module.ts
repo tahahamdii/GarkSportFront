@@ -3,7 +3,8 @@ import { NgModule } from '@angular/core';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 
 import { LayoutRoutingModule } from './layout-routing.module';
+import { FormsModule } from '@angular/forms';
 @NgModule({
-  imports: [LayoutRoutingModule, HttpClientModule, AngularSvgIconModule.forRoot()],
+  imports: [FormsModule,LayoutRoutingModule, HttpClientModule, AngularSvgIconModule.forRoot()],
 })
 export class LayoutModule {}
